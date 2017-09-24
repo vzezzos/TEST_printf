@@ -98,7 +98,7 @@ $(NAME) : $(OBJ)
 	mv $^ obj/
 
 %.o : %.c
-	gcc -Wall -Werror -Wextra -c $< -o $@ -I . -I libft
+	gcc -Wall -Werror -Wextra -c $< -o $@ -I $(HEADER)
 
 clean :
 	rm -Rf obj/
