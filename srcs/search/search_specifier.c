@@ -7,7 +7,7 @@ int		search_specifier(const char *format, t_info *tab, t_config *config)
     int		i;
 
     i = 0;
-    while (i < 8)
+    while (g_tab[i].specifier)
     {
 	if (g_tab[i].specifier == *format)
 	    return (g_tab[i].f_spec(tab, config));

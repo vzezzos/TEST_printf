@@ -14,6 +14,12 @@
 
 t_func	   g_tab[] =
 {
+    {'S', &spec_S},
+    {'C', &spec_C},
+    {'D', &spec_D},
+    {'O', &spec_O},
+    {'U', &spec_U},
+    {'X', &spec_X},
     {'s', &spec_s},
     {'p', &spec_p},
     {'c', &spec_c},
@@ -21,7 +27,8 @@ t_func	   g_tab[] =
     {'u', &spec_u},
     {'o', &spec_o},
     {'d', &spec_d},
-    {'i', &spec_i}
+    {'i', &spec_i},
+    {0, NULL}
 };
 
 int		ft_printf(const char *format, ...)
