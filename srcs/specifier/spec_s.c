@@ -6,6 +6,10 @@ int		spec_s(t_info *tab, t_config *config)
     int		len;
 
     str = (char *)va_arg(*(config->ap), void *);
+    if (!str)
+    {
+	return (-1);
+    }
     len = ft_strlen(str);
     if (fill_string(tab, len, str))
 	return (-1);
