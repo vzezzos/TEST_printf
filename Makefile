@@ -29,6 +29,11 @@ SRC =		srcs/ft_realloc.c\
 		srcs/specifier/spec_u.c\
 		srcs/specifier/spec_o.c\
 		srcs/specifier/spec_x.c\
+		srcs/specifier/spec_C.c\
+		srcs/specifier/spec_S.c\
+		srcs/specifier/spec_D.c\
+		srcs/specifier/spec_U.c\
+		srcs/specifier/spec_O.c\
 		srcs/specifier/no_specifier.c\
 		srcs/cast/cast_i/cast_i_l.c\
 		srcs/cast/cast_i/cast_i_ll.c\
@@ -52,7 +57,6 @@ SRC =		srcs/ft_realloc.c\
 		srcs/modif/flags/flag_minus.c\
 		srcs/modif/flags/flag_plus.c\
 		srcs/modif/flags/flag_space.c\
-		srcs/modif/flags/flag_star.c\
 		srcs/modif/flags/flag_zero.c\
 		srcs/modif/flags/flag_width.c\
 		srcs/modif/flags/flag_precision.c\
@@ -94,7 +98,7 @@ $(NAME) : $(OBJ)
 	mv $^ obj/
 
 %.o : %.c
-	gcc -Wall -Werror -Wextra -c $< -o $@ -I $(HEADER)
+	gcc -Wall -Werror -Wextra -c $< -o $@ -I . -I libft
 
 clean :
 	rm -Rf obj/

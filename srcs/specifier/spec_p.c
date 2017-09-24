@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		spec_p(t_info *tab, va_list *ap, t_config *config)
+int		spec_p(t_info *tab, t_config *config)
 {
     uintmax_t	n;
     char	*str;
@@ -10,7 +10,7 @@ int		spec_p(t_info *tab, va_list *ap, t_config *config)
      * egalement a voir pour %s				*/
     if (fill_string(tab, 2, "0x"))
 	return (-1);
-    n = (unsigned long)(uintptr_t)va_arg(*ap, void *);
+    n = (unsigned long)(uintptr_t)va_arg(config->ap, void *);
     if (!(str = ultoa(n, "0123456789abcdef")))
 	return (-1);
     len = ft_strlen(str);

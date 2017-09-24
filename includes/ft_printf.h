@@ -12,12 +12,13 @@
 typedef struct		s_info
 {
     char		*str;
-    int			index;
-    int			buf;
+    long		index;
+    size_t		buf;
 }			t_info;
 
 typedef struct		s_config
 {
+    va_list		*ap;
     char		diese;
     char		padding;
     int			width;
@@ -39,21 +40,28 @@ typedef struct		s_attrib
 typedef struct		s_func
 {
     char		specifier;
-    int			(*f_spec)(t_info *, va_list *, t_config *);
+    int			(*f_spec)(t_info *, t_config *);
 }			t_func;
 
 typedef intmax_t	(*t_i_hljz)(va_list *);
 typedef uintmax_t	(*t_uox_hljz)(va_list *);
 
 int			ft_printf(const char *format, ...);
-int			spec_c(t_info *tab, va_list *ap, t_config *config);
-int			spec_i(t_info *tab, va_list *ap, t_config *config);
-int			spec_d(t_info *tab, va_list *ap, t_config *config);
-int			spec_s(t_info *tab, va_list *ap, t_config *config);
-int			spec_p(t_info *tab, va_list *ap, t_config *config);
-int			spec_x(t_info *tab, va_list *ap, t_config *config);
-int			spec_o(t_info *tab, va_list *ap, t_config *config);
-int			spec_u(t_info *tab, va_list *ap, t_config *config);
+
+int			spec_c(t_info *tab, t_config *config);
+int			spec_i(t_info *tab, t_config *config);
+int			spec_d(t_info *tab, t_config *config);
+int			spec_s(t_info *tab, t_config *config);
+int			spec_p(t_info *tab, t_config *config);
+int			spec_x(t_info *tab, t_config *config);
+int			spec_o(t_info *tab, t_config *config);
+int			spec_u(t_info *tab, t_config *config);
+int			spec_S(t_info *tab, t_config *config);
+int			spec_C(t_info *tab, t_config *config);
+int			spec_X(t_info *tab, t_config *config);
+int			spec_D(t_info *tab, t_config *config);
+int			spec_U(t_info *tab, t_config *config);
+int			spec_O(t_info *tab, t_config *config);
 
 int			f_long(t_config *config, const char *format);
 int			f_short(t_config *config, const char *format);
@@ -64,7 +72,6 @@ int			f_diese(t_config *config, const char *format);
 int			f_precision(t_config *config, const char *format);
 int			f_minus(t_config *config, const char *format);
 int			f_plus(t_config *config, const char *format);
-int			f_star(t_config *config, const char *format);
 int			f_space(t_config *config, const char *format);
 int			f_zero(t_config *config, const char *format);
 int			f_width(t_config *config, const char *format);
@@ -87,7 +94,7 @@ uintmax_t		cast_uox_z(va_list *ap);
 
 int			no_specifier(t_info *tab, char c);
 void			ini_config(t_config *config);
-int			search_specifier(const char *format, t_info *tab, va_list *ap, t_config *config);
+int			search_specifier(const char *format, t_info *tab, t_config *config);
 int			search_modif(const char **format, t_info *tab, va_list *ap);
 void			*ft_realloc(void *str, size_t size_d, size_t buff);
 int			fill_string(t_info *tab, size_t size, const char *src);

@@ -2,7 +2,7 @@
 
 extern t_func	g_tab[];
 
-int		search_specifier(const char *format, t_info *tab, va_list *ap, t_config *config)
+int		search_specifier(const char *format, t_info *tab, t_config *config)
 {
     int		i;
 
@@ -10,7 +10,7 @@ int		search_specifier(const char *format, t_info *tab, va_list *ap, t_config *co
     while (i < 8)
     {
 	if (g_tab[i].specifier == *format)
-	    return (g_tab[i].f_spec(tab, ap, config));
+	    return (g_tab[i].f_spec(tab, config));
 	i++;
     }
     if (no_specifier(tab, *format))

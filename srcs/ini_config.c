@@ -3,7 +3,7 @@
 void	ini_config(t_config *config)
 {
     config->diese = 0;
-    config->precision = 0;
+    config->precision = -1;
     config->minus = 0;
     config->plus = 0;
     config->star = 0;

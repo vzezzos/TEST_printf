@@ -7,7 +7,10 @@ int		get_len_nb(intmax_t nb)
 
     len = 1;
     if (nb < 0)
+    {
 	nb *= -1;
+	len++;
+    }
     tmp = nb;
     while (tmp > 9)
     {

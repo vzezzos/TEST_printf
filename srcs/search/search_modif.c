@@ -7,32 +7,44 @@ t_attrib	g_attrib[]=
     {'.', &f_precision},
     {'-', &f_minus},
     {'+', &f_plus},
-    {'*', &f_star},
     {' ', &f_space},
+    {'0', &f_zero},
+    {'1', &f_width},
+    {'2', &f_width},
+    {'3', &f_width},
+    {'4', &f_width},
+    {'5', &f_width},
+    {'6', &f_width},
+    {'7', &f_width},
+    {'8', &f_width},
+    {'9', &f_width},
+    {'*', &f_width},
     {'h', &f_short},
     {'l', &f_long},
     {'j', &f_intmax_t},
-    {'z', &f_size_t}
+    {'z', &f_size_t},
+    {0, NULL}
 };
 
 int		search_modif(const char **format, t_info *tab, va_list *ap)
 {
     int		i;
+    int		ret;
     t_config	config;
 
     ini_config(&config);
+    config.ap = ap;
     i = 0;
     while (**format)
     {
-	if (**format == 0)
-	    *format += f_zero(&config, *format);
-	else if (ft_isdigit(**format))
-	    *format += f_width(&config, *format);
-	while (i < 10)
+	while (g_attrib[i].attrib)
 	{
 	    if (**format == g_attrib[i].attrib)
 	    {
-		*format += g_attrib[i].f_attrib(&config, *format);
+		ret = g_attrib[i].f_attrib(&config, *format);
+		if (ret < 0)
+		    return (-1);
+		*format += ret; 
 		i = 0;
 		continue;
 	    }
@@ -40,5 +52,5 @@ int		search_modif(const char **format, t_info *tab, va_list *ap)
 	}
 	break;
     }
-    return (search_specifier(*format, tab, ap, &config));
+    return (search_specifier(*format, tab, &config));
 }
