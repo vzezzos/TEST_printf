@@ -10,7 +10,7 @@ int		spec_p(t_info *tab, t_config *config)
      * egalement a voir pour %s				*/
     if (fill_string(tab, 2, "0x"))
 	return (-1);
-    n = (unsigned long)(uintptr_t)va_arg(config->ap, void *);
+    n = (unsigned long)(uintptr_t)va_arg(*(config->ap), void *);
     if (!(str = ultoa(n, "0123456789abcdef")))
 	return (-1);
     len = ft_strlen(str);
