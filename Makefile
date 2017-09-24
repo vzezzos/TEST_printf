@@ -34,6 +34,7 @@ SRC =		srcs/ft_realloc.c\
 		srcs/specifier/spec_D.c\
 		srcs/specifier/spec_U.c\
 		srcs/specifier/spec_O.c\
+		srcs/specifier/spec_X.c\
 		srcs/specifier/no_specifier.c\
 		srcs/cast/cast_i/cast_i_l.c\
 		srcs/cast/cast_i/cast_i_ll.c\
