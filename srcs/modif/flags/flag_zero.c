@@ -2,7 +2,7 @@
 
 int	f_zero(t_config *config, const char *format)
 {
-    config->star = 1;
+    config->padding = '0';
     return (1);
     (void)format;
 }

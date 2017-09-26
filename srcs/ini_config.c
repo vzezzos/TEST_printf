@@ -7,8 +7,7 @@ void	ini_config(t_config *config)
     config->minus = 0;
     config->plus = 0;
     config->star = 0;
-    config->space = 0;
-    config->zero = 0;
+    config->padding = ' ';
     config->width = 0;
     config->hljz = 0;
 }
