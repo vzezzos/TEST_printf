@@ -2,7 +2,7 @@
 
 int	f_space(t_config *config, const char *format)
 {
-    config->padding = ' ';
+    config->space = ' ';
     return (1);
     (void)format;
 }

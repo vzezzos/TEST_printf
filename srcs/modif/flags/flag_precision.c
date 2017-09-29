@@ -20,5 +20,6 @@ int	f_precision(t_config *config, const char *format)
     if (nb < 0)
         nb = 0;
     config->precision = nb;
+    config->padding = ' ';
     return (i);
 }

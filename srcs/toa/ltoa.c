@@ -4,9 +4,9 @@ static char	*get_lmin(void)
 {
     char	*str;
 
-    if (!(str = ft_strnew(21)))
+    if (!(str = ft_strnew(20)))
 	return (NULL);
-    return (ft_strcpy(str, "-9223372036854775808"));
+    return (ft_strcpy(str, "9223372036854775808"));
 }
 
 static int	get_lpow(intmax_t *nb, int len, int *neg)

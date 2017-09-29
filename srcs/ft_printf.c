@@ -37,9 +37,7 @@ int		ft_printf(const char *format, ...)
     t_info	tab;
 
     va_start(ap, format);
-    tab.buf = 0;
-    tab.index = 0;
-    tab.str = NULL;
+    ini_t_info(&tab);
     while (*format)
     {
 	if (*format == '%')
@@ -55,7 +53,7 @@ int		ft_printf(const char *format, ...)
 	}
 	format++;
     }
-    ft_putstr(tab.str);
+    write(1, tab.str, tab.index);
     free(tab.str);
     va_end(ap);
     return (tab.index);

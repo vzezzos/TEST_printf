@@ -51,6 +51,6 @@ int		search_modif(const char **format, t_info *tab, va_list *ap)
 	    i++;
 	}
 	break;
-    }
+    } 
     return (search_specifier(*format, tab, &config));
 }

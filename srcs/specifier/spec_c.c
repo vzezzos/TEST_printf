@@ -1,16 +1,30 @@
 #include "ft_printf.h"
 
-int		spec_c(t_info *tab, t_config *config)
+int			spec_c(t_info *tab, t_config *config)
 {
-    char	c;
+    unsigned char	c;
+    int			len;
 
-    c = (char)va_arg(*(config->ap), int);
-    if (config->width)
+    c = (unsigned char)va_arg(*(config->ap), int);
+    if (config->minus)
     {
-	if (fill_string(tab, (size_t)config->width - 1, &config->padding))
+	if (fill_string(tab, 1, (const char *)&c))
 	    return (-1);
     }
-    if (fill_string(tab, 1, &c))
-	return (-1);
+    if (config->width)
+    {
+	len = config->width - 1;
+	while (len > 0)
+	{
+	    if (fill_string(tab, 1, " "))
+		return (-1);
+	    len--;
+	}
+    }
+    if (!config->minus)
+    {
+	if (fill_string(tab, 1, (const char *)&c))
+	    return (-1);
+    }
     return (0);
 }

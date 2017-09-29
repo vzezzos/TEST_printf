@@ -9,9 +9,10 @@ int	f_width(t_config *config, const char *format)
     nb = 0;
     if (format[i] == '*')
     {
-	nb = va_arg(*(config->ap), int);
+	nb += va_arg(*(config->ap), int);
 	if (nb < 0)
 	{
+	/* TO DO INT MIN */
 	    nb *= -1;
 	    f_minus(config, format);
 	}
@@ -19,7 +20,7 @@ int	f_width(t_config *config, const char *format)
     }
     else if (ft_isdigit(format[i]))
     {
-	nb = ft_atoi(format + i);
+	nb += ft_atoi(format + i);
 	if (nb < 0)
 	    return (-1);
 	i += get_len_nb((intmax_t)nb);

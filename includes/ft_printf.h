@@ -19,15 +19,16 @@ typedef struct		s_info
 typedef struct		s_config
 {
     va_list		*ap;
+    char		*str_flag;
+    size_t		buf;
     char		diese;
     char		padding;
     int			width;
     int			precision;
     char		minus;
     char		plus;
-    char		star;
     char		space;
-    char		zero;
+    char		star;
     int			hljz;
 }			t_config;
 
@@ -73,6 +74,7 @@ int			f_precision(t_config *config, const char *format);
 int			f_minus(t_config *config, const char *format);
 int			f_plus(t_config *config, const char *format);
 int			f_space(t_config *config, const char *format);
+int			f_star(t_config *config, const char *format);
 int			f_zero(t_config *config, const char *format);
 int			f_width(t_config *config, const char *format);
 
@@ -94,6 +96,7 @@ uintmax_t		cast_uox_z(va_list *ap);
 
 int			no_specifier(t_info *tab, char c);
 void			ini_config(t_config *config);
+void			ini_t_info(t_info *tab);
 int			search_specifier(const char *format, t_info *tab, t_config *config);
 int			search_modif(const char **format, t_info *tab, va_list *ap);
 void			*ft_realloc(void *str, size_t size_d, size_t buff);
