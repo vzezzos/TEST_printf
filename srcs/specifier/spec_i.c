@@ -27,23 +27,48 @@ static int	set_flag_precision(t_config *config, t_info *set_flag, int len)
     return (0);
 }
 
+static int	set_flag_space_plus(t_config *config, t_info *tab, intmax_t *n)
+{
+    int		ret;
+
+    ret = 0;
+    if (config->space)
+    {
+	ret = 1;
+	if (fill_string(tab, 1, &config->space))
+	    return (-1);
+    }
+    if (*n < 0 || config->plus)
+    {
+	ret += 1;
+	if (fill_string(tab, 1, (*n < 0 ? "-" : "+")))
+	    return (-1);
+	if (*n < 0)
+	    *n *= -1;
+    }
+    if (config->padding == '0')
+    {
+	ret += 1;
+	if (fill_string(tab, 1, "0"))
+	    return (-1);
+    }
+    return (ret);
+}
+
 int		spec_i(t_info *tab, t_config *config)
 {
     intmax_t	n;
     t_info	set_flag;
     int		len;
+    int		ret;
     int		pad;
     char	*str;
 
     n = g_i_hljz[config->hljz](config->ap);
     ini_t_info(&set_flag);
-    if (n < 0 || config->plus)
-    {
-	if (fill_string(&set_flag, 1, (n < 0 ? "-" : "+")))
-	    return (-1);
-	if (n < 0)
-	    n *= -1;
-    }
+    ret = set_flag_space_plus(config, tab, &n);
+    if (ret == -1)
+	return (-1);
     if (!(str = ltoa(n)))
 	return (-1);
     len = ft_strlen(str);
@@ -54,8 +79,7 @@ int		spec_i(t_info *tab, t_config *config)
     }
     if (fill_string(&set_flag, len, str))
         return (-1);
-
-    pad = config->width - set_flag.index;
+    pad = config->width - (ret + set_flag.index);
     while (pad > 0)
     {
 	if (fill_string((config->minus ? &set_flag : tab), 1, &config->padding))
@@ -65,5 +89,6 @@ int		spec_i(t_info *tab, t_config *config)
     if (fill_string(tab, set_flag.index, set_flag.str))
         return (-1);
     free(set_flag.str);
+    free(str);
     return (0);
 }
