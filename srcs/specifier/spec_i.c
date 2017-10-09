@@ -46,7 +46,7 @@ static int	set_flag_space_plus(t_config *config, t_info *tab, intmax_t *n)
 	if (*n < 0)
 	    *n *= -1;
     }
-    if (config->padding == '0' && (config->width || config->precision))
+    if (config->padding == '0' && (config->width || config->precision > 0))
     {
 	ret += 1;
 	if (fill_string(tab, 1, "0"))
