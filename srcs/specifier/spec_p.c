@@ -8,9 +8,11 @@ int		spec_p(t_info *tab, t_config *config)
     int		ret;
     /* TO DO ---> cas particulier (nil) pour pointeur NULL 
      * egalement a voir pour %s				*/
+    n = (unsigned long)(uintptr_t)va_arg(*(config->ap), void *);
+    if (!n)
+	return (fill_string(tab, 5, "(nil)i"));
     if (fill_string(tab, 2, "0x"))
 	return (-1);
-    n = (unsigned long)(uintptr_t)va_arg(*(config->ap), void *);
     if (!(str = ultoa(n, "0123456789abcdef")))
 	return (-1);
     len = ft_strlen(str);
