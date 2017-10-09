@@ -9,12 +9,12 @@ int		spec_o(t_info *tab, t_config *config)
     int		len;
     int		ret;
 
-    if (config->diese == 1)
+    n = g_uox_hljz[config->hljz](config->ap);
+    if (config->diese == 1 && n)
     {
 	if (fill_string(tab, 1, "0"))
 	    return (-1);
     }
-    n = g_uox_hljz[config->hljz](config->ap);
     if (!(str = ultoa(n, "01234567")))
 	return (-1);
     len = ft_strlen(str);
