@@ -20,6 +20,8 @@ typedef struct		s_config
 {
     va_list		*ap;
     char		*str_flag;
+    char		*charset;
+    char		*charset_pref;
     size_t		buf;
     char		diese;
     char		padding;
