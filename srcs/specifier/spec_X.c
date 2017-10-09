@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-
+/*
 extern t_uox_hljz	g_uox_hljz[];
 
 static int	set_flag_precision(t_config *config, t_info *set_flag, int len)
@@ -17,9 +17,12 @@ static int	set_flag_precision(t_config *config, t_info *set_flag, int len)
     }
     return (0);
 }
-
+*/
 int			spec_X(t_info *tab, t_config *config)
 {
+    config->charset = "0123456789ABCEDF";
+    config->charset_pref = "0X";
+    /*
     t_info		set_flag;
     uintmax_t		n;
     char		*str;
@@ -53,5 +56,5 @@ int			spec_X(t_info *tab, t_config *config)
         return (-1);
     free(set_flag.str);
     free(str);
-    return (0);
+    */return (spec_x(tab, config));
 }

@@ -32,20 +32,19 @@ int		spec_s(t_info *tab, t_config *config)
     char	*str;
     int		len;
 
+    /* 		COMPORTEMENT A VERIFIER sur printf sys mac.
+     * 		precision traité avant ou apres width
+     * 		et verifier si les deux flags sont traites	*/
     str = (char *)va_arg(*(config->ap), void *);
     if (!str)
 	return (fill_string(tab, 6, "(null)"));
     len = ft_strlen(str);
+    if (!config->precision)
+	return (0);
+    if (config->precision > 0 && config->precision <= len)
+	len = config->precision;
     if (config->width)
 	return (set_flag_width(tab, config, str, len));
     /* COMPORTEMENT A VERIFIER sur printf sys mac. precision donnee sans nb, renvoie une chaine vide */
-    if (!config->precision)
-	return (0);
-    if (config->precision > 0)
-    {
-	if (config->precision > len)
-	    config->precision = len;
-	return (fill_string(tab, config->precision, str));
-    }
     return (fill_string(tab, len, str));
 }

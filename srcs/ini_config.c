@@ -3,6 +3,8 @@
 void	ini_config(t_config *config)
 {
     config->str_flag = NULL;
+    config->charset = "0123456789abcdef";
+    config->charset_pref = "0x";
     config->buf = 0;
     config->diese = 0;
     config->precision = -1;

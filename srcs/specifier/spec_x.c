@@ -29,10 +29,10 @@ int			spec_x(t_info *tab, t_config *config)
     ini_t_info(&set_flag);
     if (config->diese)
     {
-	if (fill_string(&set_flag, 2, "0x"))
+	if (fill_string(&set_flag, 2, config->charset_pref))
 	    return (-1);
     }
-    if (!(str = ultoa(n, "0123456789abcdef")))
+    if (!(str = ultoa(n, config->charset)))
 	return (-1);
     len = ft_strlen(str);
     if (config->precision > 0)
