@@ -51,18 +51,18 @@ int		spec_p(t_info *tab, t_config *config)
 	return (fill_string(tab, 5, "(nil)"));
     if (!(str = ultoa(n, config->charset)))
 	return (-1);
-    len = ft_strlen(str) + 2;
+    len = ft_strlen(str);
     ini_t_info(&set_flag);
     ret = set_flag_space_plus(config, (config->padding != '0' ? &set_flag : tab));
     if (ret == -1)
 	return (-1);
+    if (fill_string(&set_flag, 2, "0x"))
+        return (-1);
     if (config->precision > 0)
     {
 	if (set_flag_precision(config, &set_flag, len))
 	    return (-1);
     }
-    if (fill_string(&set_flag, 2, "0x"))
-        return (-1);
     if (fill_string(&set_flag, len, str))
         return (-1);
     len = config->width - (ret + set_flag.index);
