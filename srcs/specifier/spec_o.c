@@ -10,7 +10,7 @@ int		spec_o(t_info *tab, t_config *config)
     int		ret;
 
     n = g_uox_hljz[config->hljz](config->ap);
-    if (config->diese == 1 && n)
+    if (config->diese && n)
     {
 	if (fill_string(tab, 1, "0"))
 	    return (-1);
