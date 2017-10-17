@@ -6,7 +6,7 @@
 #    By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/12 11:22:07 by vzezzos           #+#    #+#              #
-#    Updated: 2017/04/17 15:34:02 by vzezzos          ###   ########.fr        #
+#    Updated: 2017/10/13 16:35:59 by vzezzos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ SRC =		srcs/ft_realloc.c\
 		srcs/toa/ltoa.c\
 		srcs/ini_config.c\
 		srcs/get_len_nb.c\
+		srcs/set_str.c\
+		srcs/handle_bytes.c\
+		srcs/no_n_no_precision_xi.c\
 		srcs/specifier/spec_c.c\
 		srcs/specifier/spec_s.c\
 		srcs/specifier/spec_p.c\
@@ -29,12 +32,12 @@ SRC =		srcs/ft_realloc.c\
 		srcs/specifier/spec_u.c\
 		srcs/specifier/spec_o.c\
 		srcs/specifier/spec_x.c\
-		srcs/specifier/spec_C.c\
-		srcs/specifier/spec_S.c\
-		srcs/specifier/spec_D.c\
-		srcs/specifier/spec_U.c\
-		srcs/specifier/spec_O.c\
-		srcs/specifier/spec_X.c\
+		srcs/specifier/spec_lc.c\
+		srcs/specifier/spec_ls.c\
+		srcs/specifier/spec_ld.c\
+		srcs/specifier/spec_lu.c\
+		srcs/specifier/spec_lo.c\
+		srcs/specifier/spec_lx.c\
 		srcs/specifier/no_specifier.c\
 		srcs/cast/cast_i/cast_i_l.c\
 		srcs/cast/cast_i/cast_i_ll.c\
@@ -60,6 +63,7 @@ SRC =		srcs/ft_realloc.c\
 		srcs/modif/flags/flag_space.c\
 		srcs/modif/flags/flag_zero.c\
 		srcs/modif/flags/flag_width.c\
+		srcs/modif/flags/flag_star.c\
 		srcs/modif/flags/flag_precision.c\
 		libft/srcs/is/ft_isdigit.c\
 		libft/srcs/is/ft_isspace.c\
@@ -68,6 +72,8 @@ SRC =		srcs/ft_realloc.c\
 		libft/srcs/mem/ft_memcpy.c\
 		libft/srcs/mem/ft_memalloc.c\
 		libft/srcs/str/ft_strlen.c\
+		libft/srcs/str/ft_strjoin.c\
+		libft/srcs/str/ft_strcat.c\
 		libft/srcs/str/ft_strcpy.c\
 		libft/srcs/str/ft_strnew.c\
 		libft/srcs/str/ft_atoi.c\

@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cast_i_hh.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/13 13:24:00 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 13:27:51 by vzezzos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-long		cast_i_hh(va_list *ap)
+intmax_t		cast_i_hh(va_list *ap)
 {
-    long	n;
-
-    return (n = (long)(char)va_arg(*ap, int));
+	return ((intmax_t)(char)va_arg(*ap, int));
 }

@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_diese.c                                       :+:      :+:    :+:   */
+/*   set_str_ox.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 13:31:57 by vzezzos           #+#    #+#             */
-/*   Updated: 2017/10/13 13:32:01 by vzezzos          ###   ########.fr       */
+/*   Created: 2017/10/13 16:15:18 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 16:42:31 by vzezzos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	f_diese(t_config *config, const char *format)
+int	set_str(t_info *tab, t_info *set_flag, t_config *config, char **str)
 {
-	config->diese = 1;
-	return (1);
-	(void)format;
+	int		len;
+
+	len = config->width - (config->ret + set_flag->index);
+	while (len > 0)
+	{
+		if (fill_string((config->minus ? set_flag : tab), 1, &config->padding))
+			return (-1);
+		--len;
+	}
+	if (fill_string(tab, set_flag->index, set_flag->str))
+		return (-1);
+	free(set_flag->str);
+	free(*str);
+	return (0);
 }

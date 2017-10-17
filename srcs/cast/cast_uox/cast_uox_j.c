@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cast_uox_j.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/13 13:28:38 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 13:28:42 by vzezzos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 uintmax_t		cast_uox_j(va_list *ap)
 {
-    return ((uintmax_t)va_arg(*ap, unsigned long));
+	return ((uintmax_t)va_arg(*ap, unsigned long));
 }

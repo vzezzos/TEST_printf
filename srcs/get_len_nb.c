@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_len_nb.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/13 13:22:22 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 13:22:45 by vzezzos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int		get_len_nb(intmax_t nb)
+int				get_len_nb(intmax_t nb)
 {
-    intmax_t	tmp;
-    int		len;
+	intmax_t	tmp;
+	int			len;
 
-    len = 1;
-    if (nb < 0)
-    {
-	nb *= -1;
-	len++;
-    }
-    tmp = nb;
-    while (tmp > 9)
-    {
-	tmp = tmp / 10;
-	len++;
-    }
-    return (len);
+	len = 1;
+	if (nb < 0)
+	{
+		nb *= -1;
+		len++;
+	}
+	tmp = nb;
+	while (tmp > 9)
+	{
+		tmp = tmp / 10;
+		len++;
+	}
+	return (len);
 }

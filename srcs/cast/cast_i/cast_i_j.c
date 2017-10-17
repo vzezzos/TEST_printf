@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cast_i_j.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/13 13:24:06 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 13:27:04 by vzezzos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-long		cast_i_j(va_list *ap)
+intmax_t		cast_i_j(va_list *ap)
 {
-    long	n;
-
-    return (n = (long)va_arg(*ap, intmax_t));
+	return ((intmax_t)va_arg(*ap, intmax_t));
 }

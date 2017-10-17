@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_diese.c                                       :+:      :+:    :+:   */
+/*   spec_D.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/13 13:31:57 by vzezzos           #+#    #+#             */
-/*   Updated: 2017/10/13 13:32:01 by vzezzos          ###   ########.fr       */
+/*   Created: 2017/10/12 11:42:52 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 14:28:39 by vzezzos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	f_diese(t_config *config, const char *format)
+int		spec_ld(t_info *tab, t_config *config)
 {
-	config->diese = 1;
-	return (1);
-	(void)format;
+	config->hljz = 3;
+	return (spec_i(tab, config));
 }

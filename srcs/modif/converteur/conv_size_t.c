@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_size_t.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vzezzos <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/13 13:31:15 by vzezzos           #+#    #+#             */
+/*   Updated: 2017/10/13 13:31:20 by vzezzos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	f_size_t(t_config *config, const char *format)
 {
-    config->hljz = 6;
-    return (1);
-    (void)format;
+	config->hljz = 6;
+	return (1);
+	(void)format;
 }
